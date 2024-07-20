@@ -133,6 +133,7 @@ class authController extends Controller
         $laporannya = HasilBimbingan::where('id', decrypt($id));
         $laporan = $laporannya->get();
         $nilainya = Nilai::where('id_mahasiswa', $laporan[0]['id_mahasiswa']);
+        $mahasiswas = Mahasiswa::where('id', $laporan[0]['id_mahasiswa'])->get();
         $nilai_mhs = $nilainya->get();
         $id_nilai = $nilai_mhs[0]['id'];
         $id_array = array_map('intval', explode(',', $laporan[0]['id_aspek']));
@@ -165,7 +166,15 @@ class authController extends Controller
                     }
                     if ($j < 8) {
                         if ($aspek_temp[$j] == '_008') {
-                            $nilainya = count(explode(", ", $nilainya));
+                            if ($nilainya == "0") {
+                                if ($mahasiswas[0]['jenis_kelamin'] == "P") {
+                                    $nilainya = 0.6;
+                                } else {
+                                    $nilainya = 0;
+                                }
+                            } else {
+                                $nilainya = count(explode(", ", $nilainya));
+                            }
                             $tmp = [$aspek_temp[$j] => ($nilainya * $persen_temp[$j] + $nilai_awal[$aspek_temp[$j]])];
                         } else {
                             $tmp = [$aspek_temp[$j] => ($nilainya * $persen_temp[$j] + $nilai_awal[$aspek_temp[$j]])];
@@ -186,7 +195,7 @@ class authController extends Controller
         $nilai = array_merge($nilai, ['total_hari' => $hari_sekarang]);
         Nilai::where('id', $id_nilai)->update($nilai);
         $laporannya->update(['komentar' => $request->komentar, 'status' => 'Sudah Terverifikasi']);
-        return redirect('lihatLaporan')->with('berhasilVerif', true);
+        return redirect('inputLaporan/' . encrypt($laporan[0]['id_mahasiswa']))->with('berhasilVerif', true);
     }
 
     public function nullOrNo($aspek)

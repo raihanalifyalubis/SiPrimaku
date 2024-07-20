@@ -9,7 +9,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{url('/images/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{url('/images/logo-siprimaku.png')}}" type="image/x-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -36,6 +36,15 @@
         font-size: 130%;
         font-family: Orbitron;
         letter-spacing: 7px;
+    }
+
+    h1 {
+        color: #00dfc0;
+    }
+
+    .btn-primary {
+        background-color: #00dfc0;
+        border-color: #00dfc0;
     }
 </style>
 
@@ -222,26 +231,26 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
             <a href="{{ route('/') }}" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ url('/images/logo.png') }}" alt="">
-                <h1 class="sitename">SiPrimaku</h1>
+                <img src="{{ url('/images/logo-siprimaku.png') }}" alt="">
+                <h1 class="sitename" style="color:#00dfc0;">SiPrimaku</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="{{ route('dashboard') }}">Home<br></a></li>
-                    <li><a href="{{ route('rincian') }}">Rincian<br></a></li>
+                    <li><a href="{{ route('dashboard') }}" style="color:#00dfc0;">Home<br></a></li>
+                    <li><a href="{{ route('rincian') }}" style="color:#00dfc0;">Rincian<br></a></li>
                     @if(session('statusUser') == 'Mahasiswa')
-                    <li><a href="{{ route('inputLaporan') }}">Laporan Harian<br></a></li>
+                    <li><a href="{{ route('inputLaporan') }}" style="color:#00dfc0;">Laporan Harian<br></a></li>
                     @else
-                    <li><a href="{{ route('inputMahasiswa') }}">Tambah Mahasiswa<br></a></li>
-                    <li><a href="{{ route('lihatLaporan') }}">Verifikasi Laporan
+                    <li><a href="{{ route('inputMahasiswa') }}" style="color:#00dfc0;">Tambah Mahasiswa<br></a></li>
+                    <li><a href="{{ route('lihatLaporan') }}" style="color:#00dfc0;">Verifikasi Laporan
                             @if($belumVerif > 0)
                             <span class="top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
                             @endif
                             <br></a>
                     </li>
                     @endif
-                    <li class="dropdown"><a href="#"><span>{{ session('namaUser') }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i>@if(session('gantiPass'))<span class="top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle"></span>@endif</a>
+                    <li class="dropdown"><a href="#" style="color:#00dfc0;"><span>{{ session('namaUser') }}</span> <i class="bi bi-chevron-down toggle-dropdown"></i>@if(session('gantiPass'))<span class="top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle"></span>@endif</a>
                         <ul>
                             <li><a href="{{ route('akunSet') }}">Pengaturan Akun</a></li>
                             <li><a href="{{ route('ubahPass') }}">Ganti Password @if(session('gantiPass'))<span class="top-0 start-0 translate-middle p-2 bg-danger border border-light rounded-circle"></span>@endif</a></li>

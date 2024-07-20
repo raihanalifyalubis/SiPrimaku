@@ -9,7 +9,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{url('/images/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{ url('/images/logo-siprimaku.png') }}" type="image/x-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -35,27 +35,27 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
             <a href="{{ route('/') }}" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ url('/images/logo.png') }}" alt="">
-                <h1 class="sitename">SiPrimaku</h1>
+                <img src="{{ url('/images/logo-siprimaku.png') }}" alt="">
+                <h1 class="sitename" style="color:#00dfc0;">SiPrimaku</h1>
             </a>
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Home<br></a></li>
-                    <li><a href="#tujuan">Tujuan</a></li>
-                    <li><a href="#stat">Statistik</a></li>
-                    <li class="dropdown"><a href='#'><span>Penilaian</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <li><a href="#hero" class="active" style="color:#00dfc0;">Home<br></a></li>
+                    <li><a href="#tujuan" style="color:#00dfc0;">Tujuan</a></li>
+                    <li><a href="#stat" style="color:#00dfc0;">Statistik</a></li>
+                    <li class="dropdown"><a href='#' style="color:#00dfc0;"><span>Penilaian</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
                             <li><a href="#nilai">Klasifikasi Karakter Mahasiswa</a></li>
                             <li><a href="#rincian-nilai">Tabel Aspek Penilaian</a></li>
                         </ul>
                     </li>
-                    <li><a href="https://www.instagram.com/raihanalifyalubis_">Contact</a></li>
+                    <li><a href="https://www.instagram.com/raihanalifyalubis_" style="color:#00dfc0;">Contact</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
             @if (!session('sudahLogin'))
-            <a class="btn-getstarted flex-md-shrink-0" href="{{ route('login') }}">Log in</a>
+            <a class="btn-getstarted flex-md-shrink-0" href="{{ route('login') }}" style="background-color:#00dfc0;color:black;">Log in</a>
             @endif
         </div>
     </header>
@@ -68,10 +68,10 @@
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                        <h1 data-aos="fade-up">Perkembangan Islam Mahasiswa Berkarakter UINSU Medan</h1>
+                        <h1 data-aos="fade-up" style="color:#00dfc0;">Perkembangan Islam Mahasiswa Berkarakter UINSU Medan</h1>
                         <p data-aos="fade-up" data-aos-delay="100">Aplikasi ini membantu program pembinaan karakter mahasiswa di Universitas Islam Negeri Sumatera Utara</p>
                         <div class="d-flex flex-column flex-md-row" data-aos="fade-up" data-aos-delay="200">
-                            <a href="{{ route('dashboard') }}" class="btn-get-started">Mulai <i class="bi bi-arrow-right"></i></a>
+                            <a href="{{ route('dashboard') }}" class="btn-get-started" style="background-color:#00dfc0;color:black;">Mulai <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out">
@@ -87,8 +87,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Tujuan</h2>
-                <p>Capaian Akhir Pengembangan Karakter Mahasiswa<br></p>
+                <h2 style="color:#00dfc0;">Tujuan</h2>
+                <p style="color:#00dfc0;">Capaian Akhir Pengembangan Karakter Mahasiswa<br></p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -98,7 +98,7 @@
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
                         <div class="card">
                             <img src="{{ url('homepage/img/values-3.png') }}" class="img-fluid" alt="">
-                            <h3>Kegiatan Keagamaan</h3>
+                            <h3 style="color:#00dfc0;">Kegiatan Keagamaan</h3>
                             <p>Memperkuat pemahaman nilai nilai keagamaan, meningkatkan praktik ibadah yang bermakna, mengajarkan toleransi antar umat beragama dan membentuk akhlak yang mulia sesuai dengan ajaran islam serta tatacara yang baik dan benar</p>
                         </div>
                     </div><!-- End Card Item -->
@@ -106,7 +106,7 @@
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="card">
                             <img src="{{ url('homepage/img/values-2.png') }}" class="img-fluid" alt="">
-                            <h3>Kegiatan Sosial</h3>
+                            <h3 style="color:#00dfc0;">Kegiatan Sosial</h3>
                             <p>Memperkuat empati sosial, meningkatkan kesadaran akan tanggung jawab sosial, mengajarkan kolaborasi yang inklusif dan mengembangkan kepemimpinan yang bertanggung jawab dalam masyarakat serta sadar akan tugas dan fungsinya sebagai mahasiswa sesuai di bidangnya masing masing</p>
                         </div>
                     </div><!-- End Card Item -->
@@ -114,7 +114,7 @@
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="card">
                             <img src="{{ url('homepage/img/values-1.png') }}" class="img-fluid" alt="">
-                            <h3>Literasi Digital</h3>
+                            <h3 style="color:#00dfc0;">Literasi Digital</h3>
                             <p>Membentuk pemahaman etika digital, mengajarkan keberagaman perspektif umum, mendorong tanggung jawab dalam penggunaan teknologi dan memupuk keterampilan kritis dalam menilai informasi digital serta dapat mengikuti perubahan atau perkembangan zaman</p>
                         </div>
                     </div><!-- End Card Item -->
@@ -136,7 +136,7 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="bi bi-mortarboard color-blue flex-shrink-0"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="{{ $total_mahasiswa }}" data-purecounter-duration="1" class="purecounter"></span>
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $total_mahasiswa }}" data-purecounter-duration="1" class="purecounter" style="color:#00dfc0;"></span>
                                 <p>Jumlah Mahasiswa</p>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="bi bi-person color-orange flex-shrink-0" style="color: #ee6c20;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="{{ $total_pembimbing }}" data-purecounter-duration="1" class="purecounter"></span>
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $total_pembimbing }}" data-purecounter-duration="1" class="purecounter" style="color:#00dfc0;"></span>
                                 <p>Jumlah Dosen</p>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                         <div class="stats-item d-flex align-items-center w-100 h-100">
                             <i class="bi bi-calendar-check color-pink flex-shrink-0" style="color: #bb0852;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="{{ $total_bimbingan }}" data-purecounter-duration="1" class="purecounter"></span>
+                                <span data-purecounter-start="0" data-purecounter-end="{{ $total_bimbingan }}" data-purecounter-duration="1" class="purecounter" style="color:#00dfc0;"></span>
                                 <p>Laporan Pembinaan Karakter</p>
                             </div>
                         </div>
@@ -173,8 +173,8 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>Penilaian</h2>
-                <p>Klasifikasi Karakter Mahasiswa<br></p>
+                <h2 style="color:#00dfc0;">Penilaian</h2>
+                <p style="color:#00dfc0;">Klasifikasi Karakter Mahasiswa<br></p>
             </div><!-- End Section Title -->
 
             <div class="container">

@@ -9,7 +9,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link rel="icon" href="{{url('/images/logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{url('/images/logo-siprimaku.png')}}" type="image/x-icon">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -39,8 +39,8 @@
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
             <a href="{{ route('/') }}" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <img src="{{ url('/images/logo.png') }}" alt="">
-                <h1 class="sitename">SiPrimaku</h1>
+                <img src="{{ url('/images/logo-siprimaku.png') }}" alt="">
+                <h1 class="sitename" style="color:#00dfc0;">SiPrimaku</h1>
             </a>
 
         </div>
