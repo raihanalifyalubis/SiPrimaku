@@ -18,6 +18,12 @@
             <div class="col-md-1">
                 <a href="{{ url('inputLaporan/'.encrypt(session('idMhs'))) }}"><button class="btn btn-primary">Lihat Laporan</button></a>
             </div>
+            @else
+            @if($nilai[0]['total_hari'] == '30')
+            <div class="col-md-1">
+                <a href="#"><button class="btn btn-success">Download Surat</button></a>
+            </div>
+            @endif
             @endif
         </div>
         </br>

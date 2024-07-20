@@ -44,9 +44,9 @@ class showController extends Controller
         }
         $aspek_pembinaans = AspekPembinaan::all();
         if (session('statusUser') == "Mahasiswa") {
-            $nilainya = Nilai::where('id_mahasiswa', session('idUser'))->first();
-            $nilai = showController::keArray($nilainya);
-            return view('dashboardM', compact('aspek_pembinaans', 'nilai'));
+            $nilai = Nilai::where('id_mahasiswa', session('idUser'))->get();
+            $mahasiswas = Mahasiswa::where('id', session('idUser'))->get();
+            return view('dashboardM', compact('aspek_pembinaans', 'mahasiswas', 'nilai'));
         } else {
             $mahasiswanyas = Mahasiswa::where('id_pembimbing', session('idUser'))->orderBy('nama', 'asc')->orderBy('tanggal_mulai', 'asc')->simplePaginate(10);
             $nilainyas = Nilai::all();
