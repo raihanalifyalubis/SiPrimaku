@@ -58,3 +58,5 @@ Route::get('AdminUbahPmb/{id}', '\App\Http\Controllers\showController@tampilAdmi
 Route::post('AdminUbahPmb', '\App\Http\Controllers\authController@AdminUbahPmb');
 
 Route::post('TambahPembimbing', '\App\Http\Controllers\authController@AddPembimbing');
+
+Route::post('unduhSurat', '\App\Http\Controllers\insertController@unduhSurat')->name('unduhSurat');

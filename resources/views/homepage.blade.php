@@ -189,12 +189,10 @@
                         <div class="row align-self-center gy-4">
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check" data-toggle="collapse"></i>
-                                    <p class="d-inline-flex gap-1">
-                                        <a data-bs-toggle="collapse" href="#penilaian1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            <h3>Berkarakter Baik</h3><!-- 340 - 680 -->
-                                        </a>
-                                    </p>
+                                    <i class="bi bi-check" data-toggle="collapse" style="color:#00dfc0;"></i>
+                                    <a data-bs-toggle="collapse" href="#penilaian1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        <h3 style="color:#00dfc0;">Berkarakter Baik</h3><!-- 340 - 680 -->
+                                    </a>
                                 </div>
                                 <div class="collapse" id="penilaian1">
                                     <div class="card card-body">
@@ -205,12 +203,10 @@
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <p class="d-inline-flex gap-1">
-                                        <a data-bs-toggle="collapse" href="#penilaian2" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                            <h3>Berkarakter Maju</h3> <!-- 681 - 1020 -->
-                                        </a>
-                                    </p>
+                                    <i class="bi bi-check" style="color:#00dfc0;"></i>
+                                    <a data-bs-toggle="collapse" href="#penilaian2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        <h3 style="color:#00dfc0;">Berkarakter Maju</h3> <!-- 681 - 1020 -->
+                                    </a>
                                 </div>
                                 <div class="collapse" id="penilaian2">
                                     <div class="card card-body">
@@ -221,11 +217,10 @@
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
+                                    <i class="bi bi-check" style="color:#00dfc0;"></i>
                                     <a data-bs-toggle="collapse" href="#penilaian3" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        <h3>Berkarakter Unggul</h3> <!-- 1021 - 1360 -->
+                                        <h3 style="color:#00dfc0;">Berkarakter Unggul</h3> <!-- 1021 - 1360 -->
                                     </a>
-                                    </p>
                                 </div>
                                 <div class="collapse" id="penilaian3">
                                     <div class="card card-body">
@@ -236,11 +231,10 @@
 
                             <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
+                                    <i class="bi bi-check" style="color:#00dfc0;"></i>
                                     <a data-bs-toggle="collapse" href="#penilaian4" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        <h3>Berkarakter Juara</h3> <!-- 1361 - 1700 -->
+                                        <h3 style="color:#00dfc0;">Berkarakter Juara</h3> <!-- 1361 - 1700 -->
                                     </a>
-                                    </p>
                                 </div>
                                 <div class="collapse" id="penilaian4">
                                     <div class="card card-body">

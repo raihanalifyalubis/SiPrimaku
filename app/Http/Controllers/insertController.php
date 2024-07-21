@@ -10,6 +10,7 @@ use App\Imports\MahasiswaImportArray;
 use App\Exports\ExportExcel;
 use App\Models\Mahasiswa;
 use App\Models\Nilai;
+use App\Models\Surat;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 
@@ -140,5 +141,125 @@ class insertController extends Controller
         session(['inputMhs' => $hasil]);
 
         return redirect('inputMahasiswa')->with('berhasilHapus', true);
+    }
+
+    private function ubahTanggal($tanggal)
+    {
+        $tanggal = strtotime($tanggal);
+        $hari = date('d', $tanggal);
+        $bulan = date('m', $tanggal);
+        $tahun = date('Y', $tanggal);
+        if ($bulan == 1) {
+            $bulan = "Januari";
+        } else if ($bulan == 2) {
+            $bulan = "Februari";
+        } else if ($bulan == 3) {
+            $bulan = "Maret";
+        } else if ($bulan == 4) {
+            $bulan = "April";
+        } else if ($bulan == 5) {
+            $bulan = "Mei";
+        } else if ($bulan == 6) {
+            $bulan = "Juni";
+        } else if ($bulan == 7) {
+            $bulan = "Juli";
+        } else if ($bulan == 8) {
+            $bulan = "Agustus";
+        } else if ($bulan == 9) {
+            $bulan = "September";
+        } else if ($bulan == 10) {
+            $bulan = "Oktober";
+        } else if ($bulan == 11) {
+            $bulan = "November";
+        } else {
+            $bulan = "Desember";
+        }
+
+        return $hari . " " . $bulan . " " . $tahun;
+    }
+
+    private function semesternya($semester)
+    {
+        $bahasa = ['Satu', 'Dua', 'Tiga', 'Empat', 'Lima', 'Enam', 'Tujuh', 'Delapan', 'Sembilan', 'Sepuluh'];
+
+        return $semester . " (" . $bahasa[$semester - 1] . ")";
+    }
+
+    private function nomorSurat($nomor)
+    {
+        if ($nomor < 10) {
+            return "00" . $nomor;
+        } else if ($nomor < 100) {
+            return "0" . $nomor;
+        } else {
+            return "" . $nomor;
+        }
+    }
+
+    public function unduhSurat(Request $request)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $date = date('Y-m-d H:i:s');
+        $tanggal = $this->ubahTanggal($date);
+        $namaMhs = $request->namaMhs;
+        $nimMhs = $request->nimMhs;
+        $programMhs = $request->programStudiMhs;
+        $semesterMhs = $request->semesterMhs;
+        $semester = $this->semesternya($semesterMhs);
+        $nilaiMhs = $request->nilaiMhs;
+        $karakterMhs = $request->karakterMhs;
+
+        $nomorSurat = Surat::where('id_mahasiswa', session('idUser'))->get();
+
+        if (count($nomorSurat) == 0) {
+            $suratnya = Surat::get();
+            if (count($suratnya) == 0) {
+                $nomorNext = 1;
+            } else {
+                $nomorNext = intval($suratnya[count($suratnya) - 1]['nomor']) + 1;
+            }
+            $nomor = $this->nomorSurat($nomorNext);
+
+            // Creating the new document...
+            $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('template_surat.docx');
+
+            $phpWord->setValues([
+                'nomor' => $nomor,
+                'tanggal' => $tanggal,
+                'nama' => $namaMhs,
+                'nim' => $nimMhs,
+                'program_studi' => $programMhs,
+                'semester' => $semester,
+                'nilai' => $nilaiMhs,
+                'karakter' => $karakterMhs
+            ]);
+
+            $surat_menyurat = [
+                'nomor' => $nomor,
+                'id_mahasiswa' => session('idUser'),
+                'created_at' => $date,
+                'updated_at' => $date
+            ];
+
+            Surat::insert($surat_menyurat);
+
+            $phpWord->saveAs('surat_mahasiswa/' . $nomor . '.docx');
+
+            $file = public_path() . "/surat_mahasiswa/" . $nomor . ".docx";
+
+            $headers = array(
+                'Content-Type: application/msword',
+            );
+
+            return response()->download($file, '' . $namaMhs . ' - Pemberitahuan Hasil Program Pembinaan Karakter.docx', $headers);
+        } else {
+            $file = public_path() . "/surat_mahasiswa/" . $nomorSurat[0]['nomor'] . ".docx";
+
+            $headers = array(
+                'Content-Type: application/msword',
+            );
+
+            return response()->download($file, '' . $namaMhs . ' - Pemberitahuan Hasil Program Pembinaan Karakter.docx', $headers);
+        }
     }
 }
